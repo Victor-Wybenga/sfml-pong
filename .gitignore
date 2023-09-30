@@ -35,7 +35,7 @@
 *.exe
 *.out
 *.app
-*
+sfml_pong-osx
 
 ### macOS ###
 # General
