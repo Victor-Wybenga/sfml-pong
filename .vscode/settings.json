@@ -66,6 +66,8 @@
         "__undef_macros": "cpp",
         "__verbose_abort": "cpp",
         "bit": "cpp",
-        "charconv": "cpp"
+        "charconv": "cpp",
+        "iomanip": "cpp",
+        "filesystem": "cpp"
     }
 }

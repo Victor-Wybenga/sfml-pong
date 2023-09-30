@@ -2,8 +2,42 @@
 #include "Game.hpp"
 #include <string>
 #include <iostream>
+#include <vector>
+
+
+#if defined(__APPLE__)
+	#include <unistd.h>
+	#include <libgen.h>
+  	#include <filesystem>
+  	#include <mach-o/dyld.h>
+
+std::filesystem::path find_executable(){
+  unsigned int bufferSize = 512;
+  std::vector<char> buffer(bufferSize + 1);
+
+#if defined(_WIN32)
+  ::GetModuleFileName(NULL, &buffer[0], bufferSize);
+
+#elif defined(__APPLE__)
+  if(_NSGetExecutablePath(&buffer[0], &bufferSize))
+  {
+    buffer.resize(bufferSize);
+    _NSGetExecutablePath(&buffer[0], &bufferSize);
+  }
+
+#else
+  #error Cannot yet find the executable on this platform
+#endif
+
+  std::string s = &buffer[0];
+  return s;
+}
+#endif
 
 int main() {
+	#if defined(__APPLE__)
+		chdir(find_executable().parent_path().c_str());
+	#endif
 
 	sf::RenderWindow window(
 		sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT),
