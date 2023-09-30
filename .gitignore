@@ -17,8 +17,8 @@
 *.pch
 
 # Compiled Dynamic libraries
-*.so
-*.dylib
+# *.so
+# *.dylib
 *.dll
 
 # Fortran module files
@@ -28,14 +28,14 @@
 # Compiled Static libraries
 *.lai
 *.la
-*.a
+# *.a
 *.lib
 
 # Executables
 *.exe
 *.out
 *.app
-sfml_pong-osx
+*-osx-arm64
 
 ### macOS ###
 # General
