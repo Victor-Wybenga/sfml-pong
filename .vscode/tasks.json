@@ -9,7 +9,7 @@
                 "-std=c++17",
                 "${workspaceFolder}/src/*.cpp",
                 "-o",
-                "${workspaceFolder}/${workspaceFolderBasename}-osx.app",
+                "${workspaceFolder}/${workspaceFolderBasename}-osx",
                 "-I${workspaceFolder}/include",
                 "-L${workspaceFolder}/lib/macOS",
                 "-lsfml-graphics",
